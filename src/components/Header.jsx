@@ -8,7 +8,7 @@ import {
   IconButton,
 } from '@mui/material';
 import { useState } from 'react';
-import { Person } from '@mui/icons-material';n
+import { Person } from '@mui/icons-material';
 
 const Header = ({ onLogout }) => {
   const [anchorEl, setAnchorEl] = useState(null);

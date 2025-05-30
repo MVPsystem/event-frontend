@@ -3,34 +3,33 @@ import axios from 'axios';
 
 const API_CONFIG = {
   eventApi: {
-    local: 'https://localhost:7087/api',
-    azure: 'https://strugglereventapi-bwbkc7eehkhubbfs.swedencentral-01.azurewebsites.net/api'
+    local: 'https://localhost:7087',
+    azure: 'https://strugglereventapi-bwbkc7eehkhubbfs.swedencentral-01.azurewebsites.net'
   },
   registrationApi: {
-    local: 'https://localhost:5295/api',
-    azure: 'https://strugglerregistrationapi-b0dxhtfddqg2f8c3.swedencentral-01.azurewebsites.net/api'
+    local: 'https://localhost:5295',
+    azure: 'https://strugglerregistrationapi-b0dxhtfddqg2f8c3.swedencentral-01.azurewebsites.net'
   }
 };
+
+
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 
 const createApiInstance = (baseURL) => {
   const instance = axios.create({
     baseURL,
-    timeout: 15000,
+    timeout: 10000,
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('token') || ''}`
     }
   });
 
-
+ 
   instance.interceptors.response.use(
-    response => {
-      console.log('API Success:', response.config.url);
-      return response;
-    },
+    response => response,
     error => {
-      console.error('API Error:', error.config?.url, error.response?.status);
       if (error.response?.status === 401) {
         localStorage.removeItem('token');
         localStorage.removeItem('currentUser');
@@ -43,15 +42,20 @@ const createApiInstance = (baseURL) => {
   return instance;
 };
 
+export const eventApi = createApiInstance(
+  isDevelopment ? API_CONFIG.eventApi.local : API_CONFIG.eventApi.azure
+);
 
-const isLocal = window.location.hostname === 'localhost';
-export const eventApi = createApiInstance(isLocal ? API_CONFIG.eventApi.local : API_CONFIG.eventApi.azure);
-export const registrationApi = createApiInstance(isLocal ? API_CONFIG.registrationApi.local : API_CONFIG.registrationApi.azure);
+export const registrationApi = createApiInstance(
+  isDevelopment ? API_CONFIG.registrationApi.local : API_CONFIG.registrationApi.azure
+);
 
 
-export const getEvents = () => eventApi.get('/events');
-export const getEvent = (id) => eventApi.get(`/events/${id}`);
+export const getEvents = () => eventApi.get('/api/events');
+export const getEvent = (id) => eventApi.get(`/api/events/${id}`);
 
 
-export const getRegistrations = (eventId) => registrationApi.get(`/registrations?eventId=${eventId}`);
-export const createRegistration = (data) => registrationApi.post('/registrations', data);
+export const getRegistrations = (eventId) =>
+  registrationApi.get(`/api/registrations/${eventId}`);
+export const createRegistration = (registration) =>
+  registrationApi.post('/api/registrations', registration);
