@@ -1,12 +1,12 @@
-# React + Vite
+# Event System Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Detta är frontend-applikationen för Event System MVP. Den följer designstrukturen med färgschemat.
 
-Currently, two official plugins are available:
+## Funktioner
+- Visar event med grundläggande information
+- Möjlighet att registrera sig för event
+- Följer design och layout enligt krav
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment
+- Publicerad som Azure Static Web App
+- Offentlig URL: [https://kind-flower-0a5755c1e.6.azurestaticapps.net/]
