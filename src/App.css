@@ -1,0 +1,34 @@
+.app-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  background-color: #ffffff;
+  margin-left: 280px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+
+.event-filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 12px;
+}
+
+.view-toggle {
+  margin-left: auto;
+}
