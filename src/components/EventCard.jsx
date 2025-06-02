@@ -27,7 +27,7 @@ const EventCard = ({ event }) => {
           height: 100,
           borderRadius: '8px',
           overflow: 'hidden',
-          backgroundImage: `url(${event.imageUrl || 'https://via.placeholder.com/100'})`,
+          backgroundImage: `url('/Tech.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           mr: 2
