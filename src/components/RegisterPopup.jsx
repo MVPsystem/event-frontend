@@ -1,7 +1,13 @@
-// components/RegisterPopup.jsx
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@mui/material';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  TextField,
+} from '@mui/material';
 import { useState } from 'react';
-import axios from 'axios';
+import { createRegistration } from '../services/api';
 
 const RegisterPopup = ({ open, onClose, event }) => {
   const [formData, setFormData] = useState({ name: '', email: '' });
@@ -16,10 +22,10 @@ const RegisterPopup = ({ open, onClose, event }) => {
 
     try {
       setSubmitting(true);
-      await axios.post('http://localhost:5295/api/registrations', {
-        name: formData.name,
-        email: formData.email,
-        eventId: event.id
+      await createRegistration({
+        attendeeName: formData.name,
+        attendeeEmail: formData.email,
+        eventId: event.id,
       });
       onClose(true);
     } catch (err) {

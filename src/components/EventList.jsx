@@ -27,6 +27,21 @@ const EventList = () => {
     setSelectedEventId((prevId) => (prevId === eventId ? null : eventId));
   };
 
+  const handleRegistrationSuccess = (eventId) => {
+    setEvents((prevEvents) =>
+      prevEvents.map((event) =>
+        event.id === eventId
+          ? {
+              ...event,
+              ticketsSold: (event.ticketsSold || 0) + 1,
+              ticketsLeft:
+                (event.ticketsLeft ?? (event.totalTickets - event.ticketsSold)) - 1,
+            }
+          : event
+      )
+    );
+  };
+
   if (loading) {
     return (
       <Container sx={{ ml: '280px', mt: 4 }}>
@@ -44,6 +59,7 @@ const EventList = () => {
               event={event}
               showForm={selectedEventId === event.id}
               onRegisterClick={toggleRegistrationForm}
+              onRegisterSuccess={handleRegistrationSuccess}
             />
           </Grid>
         ))}
