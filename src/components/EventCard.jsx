@@ -137,7 +137,7 @@ const EventCard = ({ event, onRegisterClick, showForm, onRegisterSuccess }) => {
         </Box>
       </Box>
 
-      {/* Registration Popup */}
+      
       {openPopup && (
         <RegisterPopup
           open={openPopup}
