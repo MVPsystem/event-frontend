@@ -72,7 +72,7 @@ function App() {
           <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header onLogout={handleLogout} />
             <div style={{ display: 'flex', flex: 1 }}>
-              <Sidebar />
+              <Sidebar onLogout={handleLogout} />
               <main style={{ flex: 1, padding: '1.5rem', backgroundColor: theme.palette.background.default }}>
                 <Routes>
                   <Route path="/" element={<Home />} />

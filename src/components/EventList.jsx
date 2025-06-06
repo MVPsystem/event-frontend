@@ -1,4 +1,4 @@
-import { Grid, Container, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import EventCard from './EventCard';
 import { getEvents } from '../services/api';
 import { useEffect, useState } from 'react';
@@ -44,27 +44,32 @@ const EventList = () => {
 
   if (loading) {
     return (
-      <Container sx={{ ml: '280px', mt: 4 }}>
+      <Box sx={{ ml: '200px', mt: 4 }}>
         <Typography variant="body1">Loading events...</Typography>
-      </Container>
+      </Box>
     );
   }
 
   return (
-    <Container sx={{ ml: '280px', py: 2 }}>
-      <Grid container spacing={3}>
+    <Box sx={{ ml: '0px', pr: 4, py: 2, maxWidth: '1000px', width: '100%' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+        }}
+      >
         {events.map((event) => (
-          <Grid item key={event.id} xs={12} sm={6} md={6}>
-            <EventCard
-              event={event}
-              showForm={selectedEventId === event.id}
-              onRegisterClick={toggleRegistrationForm}
-              onRegisterSuccess={handleRegistrationSuccess}
-            />
-          </Grid>
+          <EventCard
+            key={event.id}
+            event={event}
+            showForm={selectedEventId === event.id}
+            onRegisterClick={toggleRegistrationForm}
+            onRegisterSuccess={handleRegistrationSuccess}
+          />
         ))}
-      </Grid>
-    </Container>
+      </Box>
+    </Box>
   );
 };
 
