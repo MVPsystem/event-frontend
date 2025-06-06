@@ -13,9 +13,9 @@ const Header = () => {
   return (
     <Box
       sx={{
-        width: 'calc(100% - 280px)', // full width minus sidebar
-        bgcolor: '#ffffff',         // white background
-        px: 0,                      // remove padding so inner box fills width
+        width: 'calc(100% - 280px)', 
+        bgcolor: '#ffffff',         
+        px: 0,                      
         py: 2,
         borderBottom: '1px solid #e0e0e0',
         position: 'sticky',
