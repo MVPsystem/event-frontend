@@ -1,12 +1,20 @@
-# React + Vite
+# Event Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Event Frontend** är webbklienten för **Event System MVP**. Den är byggd ** Vite React** och används för att hämta och hantera eventdata från EventAPI samt RegistrationAPI tjänsten.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funktioner
 
-## Expanding the ESLint configuration
+- Visar event från EventAPI
+- Det är möjligt att registrera sig och logga in
+- Man kan registrera sig till ett event (dock ändras inte siffrorna, jag har haft problem med det funkar lokalt dock)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Deployment
+
+**Frontend-URL:**  
+[https://victorious-mud-0e06cfb03.6.azurestaticapps.net/]
+
+---
